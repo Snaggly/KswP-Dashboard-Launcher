@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         try{
             Intent kswIntent = getPackageManager().getLaunchIntentForPackage("com.wits.ksw");
+            kswIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(kswIntent);
             Thread.sleep(600);
 

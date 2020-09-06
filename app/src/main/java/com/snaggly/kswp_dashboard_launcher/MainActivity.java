@@ -13,17 +13,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public final static String targetPKG = "com.wits.ksw";
+    public final static String targetComponent = "com.wits.ksw.launcher.view.DashboardActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try{
-            Intent kswIntent = getPackageManager().getLaunchIntentForPackage("com.wits.ksw");
+            Intent kswIntent = getPackageManager().getLaunchIntentForPackage(targetPKG);
             kswIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(kswIntent);
             Thread.sleep(600);
 
             Intent dashboardIntent = new Intent();
-            dashboardIntent.setComponent(new ComponentName("com.wits.ksw", "com.wits.ksw.launcher.view.DashboardActivity"));
+            dashboardIntent.setComponent(new ComponentName(targetPKG, targetComponent));
             startActivity(dashboardIntent);
         }
         catch (Exception e){
